@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BEST KICKS</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+            overflow-x: hidden; /* Prevent horizontal scrolling */
+        }
+
+        /* Background for main content */
+        .back {
+            background-image: url('pictures/your-background-image.jpg'); /* Replace with your image path */
+            background-size: cover;
+            background-position: center;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Animating container */
+        .content {
+            text-align: center;
+            position: relative;
+        }
+
+        /* Animating text (Header 1) */
+        .head1 {
+            font-size: 20px;
+            font-weight: bold;
+            margin-bottom: 20px;
+            animation: slideInFromLeft 1s ease-out;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        }
+
+        /* Animating button */
+        .head3 {
+            background-color: gainsboro;
+            cursor: pointer;
+            color: black;
+            height: 50px;
+            width: 200px;
+            border-radius: 50px;
+            font-weight: bold;
+            border: 2px solid gray;
+            animation: slideInFromRight 1s ease-out;
+            transition: opacity 0.3s ease;
+        }
+
+        .head3:hover {
+            opacity: 0.8;
+        }
+
+        .head3:active {
+            opacity: 0.5;
+        }
+
+        /* Animating text (Header 2) */
+        .head2 {
+            margin-top: 20px;
+            font-size: 60px;
+            font-family: Arial, Helvetica, sans-serif;
+            animation: fadeIn 1.5s ease-out;
+        }
+
+        /* Animations */
+        @keyframes slideInFromLeft {
+            from {
+                transform: translateX(-100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideInFromRight {
+            from {
+                transform: translateX(100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Background Section -->
+    <div class="back">
+        <!-- Content to animate -->
+        <div class="content">
+            <h1 class="head1">SHOP WITH US</h1>
+            <h2 class="head2">BEST KICKS</h2>
+            <button class="head3">VISIT OUR STORE</button>
+        </div>
+    </div>
+</body>
+</html>
