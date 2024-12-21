@@ -531,9 +531,9 @@ We hope you find exactly what you are looking for and leave with a smile.</p>
             displayCartItems();
         }
 
-        function placeOrder(shoeName, shoePrice, shoeImages) {
+        function placeOrder(shoeName, shoePrice) {
             const phoneNumber = '250790153256';
-            const message = `Hi, I want to order "${shoeImages" named"${shoeName}" priced at ${shoePrice}.`;
+            const message = `Hi, I want to order "${shoeName}" priced at ${shoePrice}.`;
             const whatsappURL = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
             window.location.href = whatsappURL;
         }
