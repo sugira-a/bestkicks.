@@ -1,3 +1,4 @@
+ 
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -29,7 +30,6 @@
             width: 50px;
             height: auto;
             cursor: pointer;
-        margin: auto;
             color: white;
         }
 
@@ -44,23 +44,24 @@
         .cart-icon {
             cursor: pointer;
             font-size: 18px;
-            background-color:gainsboro;
+            background-color: gainsboro;
             color: black;
             padding: 10px 20px;
             border-radius: 25px;
             font-family: 'Times New Roman', Times, serif;
         }
-        .cart-icon:hover{
-             color: white;
-             background-color: black;
-            }
+
+        .cart-icon:hover {
+            color: white;
+            background-color: black;
+        }
 
         .sidebar {
             width: 250px;
             background-color: #181a1b;
             padding: 20px;
             height: 100%;
-            box-shadow: 2px 0 5px rgba(0,0,0,0.1);
+            box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
             position: fixed;
             top: 0;
             bottom: 0;
@@ -70,6 +71,7 @@
             text-align: center;
             margin-bottom: 30px;
             font-size: 24px;
+            color: white;
         }
 
         .category {
@@ -142,7 +144,6 @@
             transform: translateY(-50%);
             font-weight: bold;
             color: black;
-           
         }
 
         .carousel-buttons button {
@@ -168,7 +169,7 @@
             font-size: 16px;
             font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
             font-weight: bold;
-            color:black;
+            color: black;
         }
 
         .add-to-cart, .place-order-button {
@@ -187,12 +188,12 @@
 
         .add-to-cart:hover, .place-order-button:hover {
             opacity: 0.8;
-            color:white;
+            color: white;
             background-color: black;
         }
 
         .footer {
-            background-color:black;
+            background-color: black;
             color: white;
             text-align: center;
             padding: 10px;
@@ -208,12 +209,12 @@
             right: 0;
             background-color: white;
             width: 40%;
-            max-height: 80%; /* Limit the height */
+            max-height: 80%;
             box-shadow: -2px 0 5px rgba(0, 0, 0, 0.1);
             padding: 20px;
             display: none;
             flex-direction: column;
-            overflow-y: auto; /* Enable scrolling if needed */
+            overflow-y: auto;
             background-color: rgb(225, 225, 227);
         }
 
@@ -235,7 +236,7 @@
         }
 
         .cart-item button {
-            background-color:black;
+            background-color: black;
             color: white;
             border: none;
             padding: 5px 10px;
@@ -267,7 +268,7 @@
         .cart-footer button:hover {
             opacity: 0.8;
             background-color: white;
-            color:black ;
+            color: black;
         }
 
         .cart-footer .close-cart {
@@ -288,64 +289,125 @@
             opacity: 0.8;
         }
 
-    .logo2{
-        width: 300px;
-        height: auto;
-    }
+        .logo2 {
+            width: 300px;
+            height: auto;
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            .header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .logo {
+                width: 40px;
+            }
+
+            .search-box {
+                width: 200px;
+            }
+
+            .sidebar {
+                width: 200px;
+                padding: 10px;
+            }
+
+            .main-content {
+                margin-left: 220px;
+                padding: 10px;
+            }
+
+            .shoe-card {
+                width: 100%;
+                margin-bottom: 15px;
+            }
+
+            .carousel-buttons button {
+                font-size: 12px;
+                padding: 5px;
+            }
+
+            .cart-container {
+                width: 60%;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .header {
+                padding: 15px;
+            }
+
+            .search-box {
+                width: 150px;
+            }
+
+            .sidebar {
+                width: 100px;
+                padding: 5px;
+            }
+
+            .main-content {
+                margin-left: 110px;
+            }
+
+            .shoe-card {
+                width: 100%;
+            }
+
+            .cart-container {
+                width: 80%;
+            }
+        }
+
     </style>
 </head>
 <body>
 
     <div class="header">
-        <img src="pictures/LOGO.PNG" alt="Best Kicks Logo" class="logo" onclick="location.href='index.html';">
+        <img src="pictures/logo.PNG" alt="Best Kicks Logo" class="logo" onclick="location.href='bestkicks.html';">
         <input type="text" id="search-box" class="search-box" placeholder="Search for shoes..." oninput="searchShoes()">
         <div class="cart-icon" onclick="toggleCart()">Cart (<span id="cart-count">0</span>)</div>
     </div>
 
     <div class="sidebar">
-        <h2 style="color: white;">Categories</h2>
+        <h2>Categories</h2>
         <a href="#" class="category" onclick="showShoes('men')">Men</a>
         <a href="#" class="category" onclick="showShoes('women')">Women</a>
         <a href="#" class="category" onclick="showShoes('children')">Children</a>
-    
     </div>
 
     <div class="main-content" id="main-content">
         <img src="pictures/LOGO.PNG" class="logo2">
-       <p style="font-family:Playfair Display;font-size: 17px;">Thank you for visiting! Your time means the world to us.
-We hope you find exactly what you are looking for and leave with a smile.</p>
-       
+        <p style="font-family: Playfair Display; font-size: 17px;">Thank you for visiting! Your time means the world to us.
+            We hope you find exactly what you are looking for and leave with a smile.</p>
     </div>
 
-    <!-- Cart Container -->
     <div class="cart-container" id="cart-container">
         <h2>Your Cart</h2>
         <div id="cart-items"></div>
         <div class="cart-footer">
             <button onclick="placeOrderFromCart()">Place Order</button>
             <button class="close-cart" onclick="closeCart()">Close</button>
-            
         </div>
     </div>
 
     <div class="footer">
-        
-        <p style="margin-bottom:auto;color: white;margin-left: 350px;">&copy; 2024 Designed by Sgr . "Best Kicks The best place to meet Elegance"</p>
-        
+        <p style="margin-bottom: auto; color: white; margin-left: 350px;">&copy; 2024 Designed by Sgr. "Best Kicks The best place to meet Elegance"</p>
     </div>
-
-    <script>
+     <script>
         const shoesData = {
             men: [
-                {name: "Men's Running Shoes", price: "30k", images: ["pictures/shoe 1.PNG", "pictures/shoe2.PNG", "pictures/shoe3.PNG", "pictures/SHOE4.PNG"]},
-                {name: "Men's Casual Shoes", price: "27k", images: ["pictures/shoe2.PNG", "pictures/shoe3.PNG", "pictures/SHOE4.PNG", "pictures/shoe 1.PNG"]}
+                {name: "Men's Running Shoes", price: "30k", images: ["pictures/shoe 1.PNG", "pictures/shoe2.PNG", "pictures/shoe3.PNG", "pictures/shoe4.PNG"]},
+                {name: "Men's Casual Shoes", price: "27k", images: ["pictures/shoe2.PNG", "pictures/shoe3.PNG", "pictures/shoe4.PNG", "pictures/shoe 1.PNG"]}
             ],
             women: [
-                {name: "Women's Sneakers", price: "24k", images: ["pictures/SHOE4.PNG", "pictures/shoe 1.PNG", "pictures/shoe3.PNG", "pictures/shoe2.PNG"]},
+                {name: "Women's Sneakers", price: "24k", images: ["pictures/shoe4.PNG", "pictures/shoe 1.PNG", "pictures/shoe3.PNG", "pictures/shoe2.PNG"]},
             ],
             children: [
-                {name: "Kid's Running Shoes", price: "30k", images: ["pictures/shoe 1.PNG", "pictures/shoe2.PNG", "pictures/shoe3.PNG", "pictures/SHOE4.PNG"]},
-                {name: "Kid's Casual Shoes", price: "27k", images: ["pictures/shoe2.PNG", "pictures/shoe3.PNG", "pictures/SHOE4.PNG", "pictures/shoe 1.PNG"]}
+                {name: "Kid's Running Shoes", price: "30k", images: ["pictures/shoe 1.PNG", "pictures/shoe2.PNG", "pictures/shoe3.PNG", "pictures/shoe4.PNG"]},
+                {name: "Kid's Casual Shoes", price: "27k", images: ["pictures/shoe2.PNG", "pictures/shoe3.PNG", "pictures/shoe4.PNG", "pictures/shoe 1.PNG"]}
             ]
         };
 
@@ -531,9 +593,9 @@ We hope you find exactly what you are looking for and leave with a smile.</p>
             displayCartItems();
         }
 
-        function placeOrder(shoeName, shoePrice) {
+        function placeOrder(shoeName, shoePrice ,shoeImage) {
             const phoneNumber = '250790153256';
-            const message = `Hi, I want to order "${shoeName}" priced at ${shoePrice}.`;
+            const message = `Hi, I want to order "${shoeImage}" named "${shoeName}" priced at ${shoePrice}.`;
             const whatsappURL = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
             window.location.href = whatsappURL;
         }
@@ -550,6 +612,7 @@ We hope you find exactly what you are looking for and leave with a smile.</p>
             const cartContainer = document.getElementById('cart-container');
             cartContainer.classList.remove('active');
         }
+    </script>
     </script>
 
 </body>
