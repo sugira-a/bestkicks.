@@ -1,4 +1,3 @@
- 
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -30,7 +29,7 @@
             width: 50px;
             height: auto;
             cursor: pointer;
-            color: white;
+            margin-left: 300px;
         }
 
         .search-box {
@@ -51,9 +50,9 @@
             font-family: 'Times New Roman', Times, serif;
         }
 
-        .cart-icon:hover {
-            color: white;
-            background-color: black;
+        .cart-icon:hover{
+             color: white;
+             background-color: black;
         }
 
         .sidebar {
@@ -61,7 +60,7 @@
             background-color: #181a1b;
             padding: 20px;
             height: 100%;
-            box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+            box-shadow: 2px 0 5px rgba(0,0,0,0.1);
             position: fixed;
             top: 0;
             bottom: 0;
@@ -159,17 +158,17 @@
             font-size: 18px;
             margin-top: 10px;
             font-weight: bold;
-            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
             color: black;
+            font-family: cambria;
         }
-
+        
         .shoe-price {
             color: #151515;
             margin: 5px 0;
             font-size: 16px;
-            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
             font-weight: bold;
             color: black;
+            font-family: cambria;
         }
 
         .add-to-cart, .place-order-button {
@@ -182,18 +181,18 @@
             font-size: 16px;
             transition: opacity 0.3s ease;
             margin-top: 10px;
-            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
             font-weight: bold;
+            font-family: georgia;
         }
 
         .add-to-cart:hover, .place-order-button:hover {
             opacity: 0.8;
-            color: white;
+            color:white;
             background-color: black;
         }
 
         .footer {
-            background-color: black;
+            background-color:black;
             color: white;
             text-align: center;
             padding: 10px;
@@ -209,12 +208,12 @@
             right: 0;
             background-color: white;
             width: 40%;
-            max-height: 80%;
+            max-height: 80%; /* Limit the height */
             box-shadow: -2px 0 5px rgba(0, 0, 0, 0.1);
             padding: 20px;
             display: none;
             flex-direction: column;
-            overflow-y: auto;
+            overflow-y: auto; /* Enable scrolling if needed */
             background-color: rgb(225, 225, 227);
         }
 
@@ -236,7 +235,7 @@
         }
 
         .cart-item button {
-            background-color: black;
+            background-color:black;
             color: white;
             border: none;
             padding: 5px 10px;
@@ -262,13 +261,12 @@
             border: none;
             border-radius: 25px;
             cursor: pointer;
-            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
         }
 
         .cart-footer button:hover {
             opacity: 0.8;
             background-color: white;
-            color: black;
+            color:black ;
         }
 
         .cart-footer .close-cart {
@@ -294,79 +292,15 @@
             height: auto;
         }
 
-        /* Responsive Styles */
-        @media (max-width: 768px) {
-            .header {
-                flex-direction: column;
-                align-items: flex-start;
-            }
-
-            .logo {
-                width: 40px;
-            }
-
-            .search-box {
-                width: 200px;
-            }
-
-            .sidebar {
-                width: 200px;
-                padding: 10px;
-            }
-
-            .main-content {
-                margin-left: 220px;
-                padding: 10px;
-            }
-
-            .shoe-card {
-                width: 100%;
-                margin-bottom: 15px;
-            }
-
-            .carousel-buttons button {
-                font-size: 12px;
-                padding: 5px;
-            }
-
-            .cart-container {
-                width: 60%;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .header {
-                padding: 15px;
-            }
-
-            .search-box {
-                width: 150px;
-            }
-
-            .sidebar {
-                width: 100px;
-                padding: 5px;
-            }
-
-            .main-content {
-                margin-left: 110px;
-            }
-
-            .shoe-card {
-                width: 100%;
-            }
-
-            .cart-container {
-                width: 80%;
-            }
-        }
-
     </style>
 </head>
 <body>
 
     <div class="header">
-        <img src="pictures/logo.PNG" alt="Best Kicks Logo" class="logo" onclick="location.href='bestkicks.html';">
+        <!-- Logo linked to the homepage -->
+        <a href="bestkicks.html">
+            <img src="pictures/logo.PNG" alt="Best Kicks Logo" class="logo">
+        </a>
         <input type="text" id="search-box" class="search-box" placeholder="Search for shoes..." oninput="searchShoes()">
         <div class="cart-icon" onclick="toggleCart()">Cart (<span id="cart-count">0</span>)</div>
     </div>
@@ -380,10 +314,10 @@
 
     <div class="main-content" id="main-content">
         <img src="pictures/LOGO.PNG" class="logo2">
-        <p style="font-family: Playfair Display; font-size: 17px;">Thank you for visiting! Your time means the world to us.
-            We hope you find exactly what you are looking for and leave with a smile.</p>
+        <p style="font-family:Playfair Display;font-size: 17px;">Thank you for visiting! Your time means the world to us. We hope you find exactly what you are looking for and leave with a smile.</p>
     </div>
 
+    <!-- Cart Container -->
     <div class="cart-container" id="cart-container">
         <h2>Your Cart</h2>
         <div id="cart-items"></div>
@@ -394,9 +328,10 @@
     </div>
 
     <div class="footer">
-        <p style="margin-bottom: auto; color: white; margin-left: 350px;">&copy; 2024 Designed by Sgr. "Best Kicks The best place to meet Elegance"</p>
+        <p>&copy; 2024 Designed by Sgr . "Best Kicks The best place to meet Elegance"</p>
     </div>
-     <script>
+
+    <script>
         const shoesData = {
             men: [
                 {name: "Men's Running Shoes", price: "30k", images: ["pictures/shoe 1.PNG", "pictures/shoe2.PNG", "pictures/shoe3.PNG", "pictures/shoe4.PNG"]},
@@ -484,60 +419,77 @@
         }
 
         function searchShoes() {
-            const searchQuery = document.getElementById('search-box').value.toLowerCase();
-            const allShoes = Object.values(shoesData).flat();
-            const filteredShoes = allShoes.filter(shoe => shoe.name.toLowerCase().includes(searchQuery));
+    const searchQuery = document.getElementById('search-box').value.toLowerCase();
+    const allShoes = Object.values(shoesData).flat();
+    const filteredShoes = allShoes.filter(shoe => shoe.name.toLowerCase().includes(searchQuery));
 
-            // Display filtered results
-            const mainContent = document.getElementById('main-content');
-            mainContent.innerHTML = '';
-            filteredShoes.forEach(shoe => {
-                const shoeCard = document.createElement('div');
-                shoeCard.className = 'shoe-card';
+    // Display filtered results
+    const mainContent = document.getElementById('main-content');
+    mainContent.innerHTML = ''; // Clear existing content
 
-                const carousel = document.createElement('div');
-                carousel.className = 'carousel';
+    filteredShoes.forEach(shoe => {
+        const shoeCard = document.createElement('div');
+        shoeCard.className = 'shoe-card';
 
-                const carouselImages = document.createElement('div');
-                carouselImages.className = 'carousel-images';
+        // Create carousel for shoe images
+        const carousel = document.createElement('div');
+        carousel.className = 'carousel';
 
-                shoe.images.forEach(image => {
-                    const img = document.createElement('img');
-                    img.src = image;
-                    carouselImages.appendChild(img);
-                });
+        const carouselImages = document.createElement('div');
+        carouselImages.className = 'carousel-images';
 
-                const prevButton = document.createElement('button');
-                prevButton.textContent = '<';
-                const nextButton = document.createElement('button');
-                nextButton.textContent = '>';
+        shoe.images.forEach(image => {
+            const img = document.createElement('img');
+            img.src = image;
+            carouselImages.appendChild(img);
+        });
 
-                const buttonsDiv = document.createElement('div');
-                buttonsDiv.className = 'carousel-buttons';
-                buttonsDiv.appendChild(prevButton);
-                buttonsDiv.appendChild(nextButton);
+        const prevButton = document.createElement('button');
+        prevButton.textContent = '<';
+        const nextButton = document.createElement('button');
+        nextButton.textContent = '>';
 
-                carousel.appendChild(carouselImages);
-                carousel.appendChild(buttonsDiv);
+        const buttonsDiv = document.createElement('div');
+        buttonsDiv.className = 'carousel-buttons';
+        buttonsDiv.appendChild(prevButton);
+        buttonsDiv.appendChild(nextButton);
 
-                shoeCard.innerHTML = `
-                    <p class="shoe-name">${shoe.name}</p>
-                    <p class="shoe-price">${shoe.price}</p>
-                    <button class="add-to-cart">Add to Cart</button>
-                    <button class="place-order-button">Place order</button>
-                `;
+        carousel.appendChild(carouselImages);
+        carousel.appendChild(buttonsDiv);
 
-                // Attach event listeners after the card has been created
-                const addToCartButton = shoeCard.querySelector('.add-to-cart');
-                addToCartButton.addEventListener('click', () => addToCart(shoe));
+        // Add the shoe name and price, along with the action buttons
+        shoeCard.innerHTML = `
+            <p class="shoe-name">${shoe.name}</p>
+            <p class="shoe-price">${shoe.price}</p>
+            <button class="add-to-cart">Add to Cart</button>
+            <button class="place-order-button">Place order</button>
+        `;
 
-                const placeOrderButton = shoeCard.querySelector('.place-order-button');
-                placeOrderButton.addEventListener('click', () => placeOrder(shoe.name, shoe.price));
+        // Attach event listeners after the card has been created
+        const addToCartButton = shoeCard.querySelector('.add-to-cart');
+        addToCartButton.addEventListener('click', () => addToCart(shoe));
 
-                shoeCard.insertBefore(carousel, shoeCard.firstChild);
-                mainContent.appendChild(shoeCard);
-            });
-        }
+        const placeOrderButton = shoeCard.querySelector('.place-order-button');
+        placeOrderButton.addEventListener('click', () => placeOrder(shoe.name, shoe.price));
+
+        shoeCard.insertBefore(carousel, shoeCard.firstChild);
+        mainContent.appendChild(shoeCard);
+
+        let currentIndex = 0;
+
+        // Slide left in the carousel
+        prevButton.addEventListener('click', () => {
+            currentIndex = (currentIndex > 0) ? currentIndex - 1 : shoe.images.length - 1;
+            carouselImages.style.transform = `translateX(-${currentIndex * 100}%)`;
+        });
+
+        // Slide right in the carousel
+        nextButton.addEventListener('click', () => {
+            currentIndex = (currentIndex < shoe.images.length - 1) ? currentIndex + 1 : 0;
+            carouselImages.style.transform = `translateX(-${currentIndex * 100}%)`;
+        });
+    });
+}
 
         function addToCart(shoe) {
             cart.push(shoe);
@@ -612,7 +564,6 @@
             const cartContainer = document.getElementById('cart-container');
             cartContainer.classList.remove('active');
         }
-    </script>
     </script>
 
 </body>
