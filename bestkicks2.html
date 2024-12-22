@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.5">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BEST KICKS</title>
     <style>
         /* General Styling */
@@ -36,7 +36,7 @@
             padding: 5px 10px;
             border-radius: 20px;
             border: 1px solid #ccc;
-            width: 250px;
+            width: 200px;
             margin-right: 20px;
         }
 
@@ -50,11 +50,12 @@
             font-family: 'Times New Roman', Times, serif;
         }
 
-        .cart-icon:hover{
-             color: white;
-             background-color: black;
+        .cart-icon:hover {
+            color: white;
+            background-color: black;
         }
 
+        /* Sidebar */
         .sidebar {
             width: 250px;
             background-color: #181a1b;
@@ -201,6 +202,52 @@
             height: 30px;
         }
 
+        /* Mobile Responsiveness */
+        @media (max-width: 768px) {
+            .header {
+                flex-direction: column;
+                align-items: flex-start;
+                padding: 15px;
+            }
+
+            .search-box {
+                width: 100%;
+                margin-top: 10px;
+            }
+
+            .cart-icon {
+                margin-top: 10px;
+            }
+
+            .sidebar {
+                width: 200px;
+                position: fixed;
+                top: 0;
+                left: 0;
+                height: 100%;
+                padding: 10px;
+                display: none;
+            }
+
+            .sidebar.active {
+                display: block;
+            }
+
+            .main-content {
+                margin-left: 0;
+                padding: 10px;
+            }
+
+            .shoe-card {
+                width: 100%;
+                margin-bottom: 20px;
+            }
+
+            .logo2 {
+                width: 100%;
+            }
+        }
+
         /* Cart styling */
         .cart-container {
             position: fixed;
@@ -287,11 +334,6 @@
             opacity: 0.8;
         }
 
-        .logo2 {
-            width: 300px;
-            height: auto;
-        }
-
     </style>
 </head>
 <body>
@@ -305,7 +347,7 @@
         <div class="cart-icon" onclick="toggleCart()">Cart (<span id="cart-count">0</span>)</div>
     </div>
 
-    <div class="sidebar">
+    <div class="sidebar" id="sidebar">
         <h2>Categories</h2>
         <a href="#" class="category" onclick="showShoes('men')">Men</a>
         <a href="#" class="category" onclick="showShoes('women')">Women</a>
@@ -328,10 +370,18 @@
     </div>
 
     <div class="footer">
-        <p>&copy; 2024 Designed by Sgr . "Best Kicks The best place to meet Elegance"</p>
+        <p>&copy; 2024 BEST KICKS. All rights reserved.</p>
     </div>
 
     <script>
+        function toggleCart() {
+            document.getElementById('cart-container').classList.toggle('active');
+        }
+
+        function closeCart() {
+            document.getElementById('cart-container').classList.remove('active');
+        }
+ 
         const shoesData = {
             men: [
                 {name: "Men's Running Shoes", price: "30k", images: ["pictures/shoe 1.PNG", "pictures/shoe2.PNG", "pictures/shoe3.PNG", "pictures/shoe4.PNG"]},
@@ -418,7 +468,7 @@
             });
         }
 
-        function searchShoes() {
+    function searchShoes() {
     const searchQuery = document.getElementById('search-box').value.toLowerCase();
     const allShoes = Object.values(shoesData).flat();
     const filteredShoes = allShoes.filter(shoe => shoe.name.toLowerCase().includes(searchQuery));
@@ -506,6 +556,7 @@
             cartContainer.classList.toggle('active');
             displayCartItems();
         }
+
 
         function displayCartItems() {
             const cartItemsContainer = document.getElementById('cart-items');
