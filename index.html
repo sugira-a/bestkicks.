@@ -6,7 +6,9 @@
     <link rel="stylesheet" href="bestkicks.css">
     <title>BEST KICKS</title>
     
-    <style>
+</head>
+
+<style>
       body {
             margin: 0;
             padding: 0;
@@ -16,6 +18,7 @@
         .top-ba {
             background-color: whitesmoke;
             padding: 10px;
+          
         }
 
         .top-banner {
@@ -34,6 +37,7 @@
             height: 600px;
         }
 
+
         .head1 {
             font-size: 30px;
             font-weight: bold;
@@ -43,6 +47,7 @@
             color: black;
             margin-top: 10px;
             margin-left: 470px;
+            
         }
 
         .head3 {
@@ -57,16 +62,6 @@
             border: 2px solid gray;
             animation: slideInFromRight 1s ease-out;
             transition: opacity 0.3s ease;
-        }
-
-        .head3:hover {
-            opacity: 0.8;
-            color:white;
-            background-color: black;
-        }
-
-        .head3:active {
-            opacity: 0.5;
         }
         .head4 {background-color: rgb(210, 221, 185);
             font-weight: light;
@@ -83,13 +78,24 @@
 
         }
 
+        .head3:hover {
+            opacity: 0.8;
+            color:white;
+            background-color: black;
+        }
+
+        .head3:active {
+            opacity: 0.5;
+        }
+
         .head2 {
             font-weight: bold;
             margin-top: 20px;
             font-size: 60px;
             font-family: Arial, Helvetica, sans-serif;
             animation: fadeIn 2s ease-out;
-            color: rgb(222, 233, 236);
+            color: rgb(222, 233, 236)
+            
         }
 
         @keyframes slideInFromLeft {
@@ -122,7 +128,6 @@
                 opacity: 1;
             }
         }
-
         .image1 {
             width: 100px;
             height: 100px;
@@ -130,27 +135,28 @@
             margin: 0 20px;
             margin-left: 50px;
         }
-
         .image2 {
             width: 80px;
             margin: 0 20px;
             margin-left:800px;
             border-radius: 50%;
         }
-
-        .Elegant {
-            color: dark-blue;
-            margin-top: 450px;
-            font-weight: bold;
-            font-family: 'Imperial Script';
+        .Elegant{
+           color:rgb(4, 56, 81);
+           margin-top: 450px;
+           font-weight: bold;
+           font-family:imperial Script;
+          
         }
-
+        
+       
         .footer {
             height: 200px;
             background-color: gray;
             padding: 20px;
             color: black;
             text-align: center;
+            
         }
 
         .footer .contact-details {
@@ -172,11 +178,9 @@
             justify-content: center;
             gap: 10px;
         }
-
         .footer a {
             color: black;
-            text-decoration: none;
-        }
+            text-decoration: none;}
 
         .delivery-image img {
             width: 50px;
@@ -192,18 +196,24 @@
             color: black;
             font-weight: bold;
         }
-
-        .foot-text {
+        .foot-text{
             color: black;
             font-weight: bold;
             font-family: PT Serif;
+            
         }
 
-        /* Media Queries for Responsiveness */
+
         @media (max-width: 768px) {
             .top-ba {
                 flex-direction: column;
-                text-align: center;
+              
+            }
+            .image1{
+              margin-left: 20px;
+            }
+            .image2{
+             margin-right: 20px;
             }
 
             .head1 {
@@ -216,10 +226,16 @@
                 height: 40px;
                 font-size: 14px;
             }
+            .head4 {
+                width: 150px;
+                height: 40px;
+                font-size: 14px;
+            }
 
             .head2 {
                 font-size: 36px;
             }
+            
 
             .footer .delivery-image img {
                 width: 40px;
@@ -227,15 +243,6 @@
 
             .delivery-image span {
                 font-size: 14px;
-            }
-
-            .image2 {
-                margin-left: 0;
-            }
-
-            .Elegant {
-                margin-top: 330px;
-                font-size: 18px;
             }
         }
 
@@ -249,56 +256,59 @@
                 height: 40px;
                 font-size: 12px;
             }
+            .head4 {
+                width: 130px;
+                height: 40px;
+                font-size: 12px;
+            }
+            .Elegant{
+                margin-top: 450px;
+            }
 
             .footer .contact-details {
                 font-size: 14px;
             }
-
-            .back {
-                padding: 80px 10px;
-            }
-
-            .Elegant {
-                margin-top: 250px;
-                font-size: 16px;
-            }
         }
-
-    </style>
-</head>
+        .m {
+            color:black;
+        }
+</style>
 
 <body>
     <div class="top-ba">
-        <img class="image1" src="pictures/LOGO.PNG" alt="Stylish Shoes">
-        <img class="image2" src="pictures/disco.jpg" alt="Stylish">
+        <img class="image1" src="pictures/logo.PNG" alt="Stylish Shoes">
+         <img class="image2" src="pictures/disco.jpg" alt="Stylish">
         <div class="top-banner">
             <h1>Welcome to Best Kicks</h1>
             <p style="font-family: Imperial Script;">Your favorite destination for stylish footwear!</p>
         </div>
-        <h1 class="head1">SHOP IN STYLE</h1>
+        <h1 class="head1">SHOP IN STYLE </h1>
     </div>
 
     <div class="back">
+ 
         <div>
             <h2 class="head2">BEST KICKS</h2>
-          <p><button class="head4">CLICK HERE ➤ ➤</button><button class="head3" onclick="location.href='bestkicks2.html';">TO VISIT OUR STORE</button></p>
-            <p class="Elegant">STEP INTO ELEGANCE WITH US</p>
+          <p><button class="head4">CLICK HERE ➤ ➤</button><button class="head3" onclick="location.href='bestkicks2.html';">TO VISIT OUR STORE</button></p>  
+            <p class="Elegant" >STEP INTO ELEGANCE WITH US</p>
         </div>
+
     </div>
 
     <div class="footer">
-        <p class="foot-text">Wishing you a better experience with our online store.</p>
+          <p class="foot-text">Wishing you a better experience with our online store.</p>
 
         <div class="contact-details">
             <h3><u>Contact Us</u></h3>
-            <p>E-mail: <a href="mailto:1bestkicks@gmail.com">1bestkicks@gmail.com</a></p>
-            <p class="m">Whatsapp / call: <a href="https://wa.me/message/TOQDZ7S5TMANE1" target="_blank">+250790153256</a></p>
+            <class="contacts">
+            <p>E-mail:<a href="mailto:sugiraruti@gmail.com">1bestkicks@gmail.com</a></p>
+            <p class="m">Whatsapp / call:<a href="https://wa.me/message/TOQDZ7S5TMANE1" target="_blank">+250790153256</a></p>
+            
         </div>
 
         <div class="delivery-image">
             <img src="pictures/download.png" alt="Fast Delivery">
-            <span class="words">We offer fast and reliable delivery!</span>
-            <span><img src="pictures/qr.PNG" alt="QR Code"></span>
+            <span class="words">We offer fast and reliable delivery!</span><span><img src="pictures/qr.PNG"></span>
         </div>
     </div>
 </body>
