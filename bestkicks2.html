@@ -667,7 +667,7 @@
 
         function placeOrder(shoeName, shoePrice ,shoeImage) {
             const phoneNumber = '250790153256';
-            const message = `Hi, I want to order "${shoeImage}" named "${shoeName}" priced at ${shoePrice}.`;
+            const message = `Hi, I want to order a shoe named "${shoeName}" priced at ${shoePrice}.`;
             const whatsappURL = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
             window.location.href = whatsappURL;
         }
