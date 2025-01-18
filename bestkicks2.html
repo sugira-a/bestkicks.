@@ -352,8 +352,10 @@
             opacity: 0.8;
         }
          .logo2 {
-            width: 230px;
+            width: 250px;
             height: auto;
+            border-radius: 10%;
+            margin-right: 10%;
             
         }
 
@@ -363,19 +365,19 @@
 
     <div class="header">
         <!-- Logo linked to the homepage -->
-        <a href="index.html">
-            <img src="pictures/LOGO.PNG" alt="Best Kicks Logo" class="logo">
+        <a href="bestkicks.html">
+            <img src="pictures/nlogo.PNG" alt="Best Kicks Logo" class="logo">
         </a>
         <input type="text" id="search-box" class="search-box" placeholder="Search for shoes..." oninput="searchShoes()">
         <div class="cart-icon" onclick="toggleCart()">Cart (<span id="cart-count">0</span>)</div>
    
-        <h2 style="width=80px;">Categories</h2>
+        <h2 style="width:80px;">Categories</h2>
         <a href="#" class="category" onclick="showShoes('men')">Men</a>
         <a href="#" class="category" onclick="showShoes('women')">Women</a>
         <a href="#" class="category" onclick="showShoes('children')">Children</a>
     </div>
       <div class="sidebar">
-        <p><u style="font-size=18px;">About Us</u> </p>
+        <p><u style="font-size:18px;">About Us</u> </p>
         <p>At BestKicks, we make finding the perfect shoes easy and fun. From everyday classics to the latest trends, we’ve got something for everyone. Step up your style with us today
         <p>For assistance, visit our homepage by clicking our logo on top for our contact details.</p>
           <p>VISIT BESTKICKS TO MEET ELEGANCE</p>
@@ -383,7 +385,7 @@
     </div>
 
     <div class="main-content" id="main-content">
-        <img src="pictures/LOGO.PNG" class="logo2">
+        <img src="pictures/nlogo.PNG" class="logo2">
         <p style="font-family:agraham;font-size: 14px;">Thank you for visiting! Your time means the world to us. We hope you find exactly what you are looking for and leave with a smile.</p>
     </div>
 
@@ -667,7 +669,7 @@
 
         function placeOrder(shoeName, shoePrice ,shoeImage) {
             const phoneNumber = '250790153256';
-            const message = `Hi, I want to order a shoe named "${shoeName}" priced at ${shoePrice}.`;
+            const message = `Hi, I want to order "${shoeImage}" named "${shoeName}" priced at ${shoePrice}.`;
             const whatsappURL = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
             window.location.href = whatsappURL;
         }
