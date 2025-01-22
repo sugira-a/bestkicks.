@@ -410,7 +410,7 @@
 
     <div class="header">
         <!-- Logo linked to the homepage -->
-        <a href="index.html">
+        <a href="bestkicks.html">
             <img src="pictures/nlogo.PNG" alt="Best Kicks Logo" class="logo">
         </a>
         <input type="text" id="search-box" class="search-box" placeholder="Search for shoes..." oninput="searchShoes()">
@@ -418,7 +418,7 @@
     
         <!-- Audio Icon -->
         <div class="audio-icon" style="cursor: pointer; display: flex; align-items: center;">
-            <img src="pictures/music icon.jpg" alt="Audio Icon" style="width: 24px; height: 24px; margin-right: 10px;" onclick="toggleAudio()">
+            <img src="pictures/recorded-icon-7.jpg" alt="Audio Icon" style="width: 24px; height: 24px; margin-right: 10px;" onclick="toggleAudio()">
         </div>
     
         <h2 style="width:80px;">Categories</h2>
@@ -483,20 +483,21 @@
  
         const shoesData = {
             men: [
-{name: "New Balance MR530sd", price: "40k", images: ["pictures/NB (1)-min.jpg", "pictures/NB (2)-min.jpg", "pictures/NB (3)-min.jpg", "pictures/NB (4)-min.jpg"]},
-{name: "Adidas Handball spezial prooloved Green", price: "32k", images: ["samba grn (1)-min.jpg", "pictures/samba grn (2)-min.jpg", "pictures/samba grn (3)-min.jpg", "pictures/samba grn (4)-min.jpg"]},
-{name: "Onitsuka tiger", price: "32k", images: ["onitsuka tiger (1)-min.jpg", "pictures/onitsuka tiger (2)-min.jpg", "onitsuka tiger (3)-min.jpg", "onitsuka tiger (4)-min.jpg"]},   
-{name: "Nike Dunk low ", price: "25k", images: ["pictures/jordan 2-min.jpeg", "pictures/jordan 3-min.jpeg", "pictures/jordan 4-min.jpeg", "pictures/jordan 5-min.jpeg"]},
-{name: "Nike Airmax Pulse", price: "33k", images: ["pictures/air max 1.jpg", "pictures/air max 2.jpg", "pictures/air max 3.jpg", "pictures/air max 4.jpg"]} ,
-{name: "Nike Dunk Low SE 85", price: "30k", images: ["pictures/cs nike 1.jpg", "pictures/cs nike 2.jpg", "pictures/cs nike 3.jpg", "pictures/cs nike 4.jpg"]},
-{name: "Nike Dunk Low SE 85", price: "30k", images: ["pictures/j1 blue (1).jpg", "pictures/j1 blue (2).jpg", "pictures/j1 blue (3).jpg", "pictures/j1 blue (4).jpg"]},
-{name: "Vans Old Skool", price: "25k", images: ["pictures/vans 1-min.jpg", "pictures/vans 2-min.jpg", "pictures/vans 3.webp", "pictures/vans 4-min.jpg"]},
-{name: "Nike Dunk Low SE 85", price: "30k", images: ["pictures/nike sb ch 1-min".jpg, "pictures/nike sb ch2-min.jpg", "pictures/nike sb ch 3-min".jpg", "pictures/nike sb ch 4-min".jpg"]},
-{name: "Clarks Originals Wallabee shoes", price: "35k", images: ["pictures/classic yellow (1).jpg", "pictures/classic yellow (2).jpg", "pictures/classic yellow (3).jpg", "pictures/classic yellow (4).jpg"]},   
-{name: "Adidas Samba OG W/blue", price: "30k", images: ["pictures/samba blue  2.webp", "pictures/samba blue  3.webp", "pictures/samba blue  5.webp", "pictures/samba blue  4.webp"]},
-{name: "Adidas Handball Spezial green", price: "30k", images: ["pictures/samba grn (1)-min.jpg", "pictures/samba grn (2)-min.jpg", "pictures/samba grn (3)-min.jpg", "pictures/samba grn (4)-min.jpg"]} ,
-{name: "Adidas Puig Samba", price: "30k", images: ["pictures/samba puig 1.webp", "pictures/samba puig 2.webp", "pictures/samba puig 3.webp", "pictures/samba puig.webp"]}
-],
+                {name: "Men's Running Shoes", price: "30k", images: ["pictures/shoe 1.PNG", "pictures/shoe2.PNG", "pictures/shoe3.PNG", "pictures/SHOE4.PNG"]},
+                {name: "Men's Casual Shoes", price: "27k", images: ["pictures/shoe2.PNG", "pictures/shoe3.PNG", "pictures/SHOE4.PNG", "pictures/shoe 1.PNG"]},
+                {name: "Women's Sneakers", price: "24k", images: ["pictures/SHOE4.PNG", "pictures/shoe 1.PNG", "pictures/shoe3.PNG", "pictures/shoe2.PNG"]},   
+                {name: "Men's Running Shoes", price: "30k", images: ["pictures/shoe 1.PNG", "pictures/shoe2.PNG", "pictures/shoe3.PNG", "pictures/SHOE4.PNG"]},
+                {name: "Men's Casual Shoes", price: "27k", images: ["pictures/shoe2.PNG", "pictures/shoe3.PNG", "pictures/SHOE4.PNG", "pictures/shoe 1.PNG"]} ,
+                {name: "Kid's Running Shoes", price: "30k", images: ["pictures/shoe 1.PNG", "pictures/shoe2.PNG", "pictures/shoe3.PNG", "pictures/SHOE4.PNG"]},
+                {name: "Kid's Casual Shoes", price: "27k", images: ["pictures/shoe2.PNG", "pictures/shoe3.PNG", "pictures/shoe4.PNG", "pictures/shoe 1.PNG"]},
+                {name: "Men's Running Shoes", price: "30k", images: ["pictures/shoe 1.PNG", "pictures/shoe2.PNG", "pictures/shoe3.PNG", "pictures/SHOE4.PNG"]},
+                {name: "Men's Casual Shoes", price: "27k", images: ["pictures/shoe2.PNG", "pictures/shoe3.PNG", "pictures/SHOE4.PNG", "pictures/shoe 1.PNG"]},
+                {name: "Women's Sneakers", price: "24k", images: ["pictures/SHOE4.PNG", "pictures/shoe 1.PNG", "pictures/shoe3.PNG", "pictures/shoe2.PNG"]},   
+                {name: "Men's Running Shoes", price: "30k", images: ["pictures/shoe 1.PNG", "pictures/shoe2.PNG", "pictures/shoe3.PNG", "pictures/SHOE4.PNG"]},
+                {name: "Men's Casual Shoes", price: "27k", images: ["pictures/shoe2.PNG", "pictures/shoe3.PNG", "pictures/SHOE4.PNG", "pictures/shoe 1.PNG"]} ,
+                {name: "Kid's Running Shoes", price: "30k", images: ["pictures/shoe 1.PNG", "pictures/shoe2.PNG", "pictures/shoe3.PNG", "pictures/SHOE4.PNG"]},
+                {name: "Kid's Casual Shoes", price: "27k", images: ["pictures/shoe2.PNG", "pictures/shoe3.PNG", "pictures/shoe4.PNG", "pictures/shoe 1.PNG"]}
+            ],
     
             women:[
                 {name: "Women's Sneakers", price: "24k", images: ["pictures/SHOE4.PNG", "pictures/shoe 1.PNG", "pictures/shoe3.PNG", "pictures/shoe2.PNG"]},
@@ -810,5 +811,3 @@ window.onclick = function(event) {
 
 </body>
 </html>
-
-
