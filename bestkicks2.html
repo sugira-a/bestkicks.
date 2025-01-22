@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BEST KICKS</title>
-    <link rel="icon" href="pictures/favicon.ico" type="image/x-icon"> 
     <style>
         /* General Styling */
         body {
@@ -187,7 +186,7 @@
             font-family: cambria;
         }
 
-        .add-to-cart, .place-order-button {
+        .add-to-cart, .place-order-button ,.view-details-button {
             background-color: auto;
             color: rgb(3, 32, 36);
             padding: 10px 20px;
@@ -265,6 +264,50 @@
                 width: 100%;
             }
         }
+        /* Popup Modal Styles */
+.popup {
+    display: none; /* Hidden by default */
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4); /* Black background with transparency */
+    padding-top: 60px;
+}
+
+.popup-content {
+    background-color: #fff;
+    margin: 5% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 600px;
+}
+
+.popup img {
+    width: 100px;
+    margin: 5px;
+}
+
+.close-popup {
+    color: #aaa;
+    font-size: 28px;
+    font-weight: bold;
+    position: absolute;
+    top: 10px;
+    right: 25px;
+    cursor: pointer;
+}
+
+.close-popup:hover,
+.close-popup:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
 
         /* Cart styling */
         .cart-container {
@@ -359,6 +402,7 @@
             margin-right: 10%;
             
         }
+       
 
     </style>
 </head>
@@ -371,12 +415,24 @@
         </a>
         <input type="text" id="search-box" class="search-box" placeholder="Search for shoes..." oninput="searchShoes()">
         <div class="cart-icon" onclick="toggleCart()">Cart (<span id="cart-count">0</span>)</div>
-   
+    
+        <!-- Audio Icon -->
+        <div class="audio-icon" style="cursor: pointer; display: flex; align-items: center;">
+            <img src="pictures/music icon.jpg" alt="Audio Icon" style="width: 24px; height: 24px; margin-right: 10px;" onclick="toggleAudio()">
+        </div>
+    
         <h2 style="width:80px;">Categories</h2>
         <a href="#" class="category" onclick="showShoes('men')">Men</a>
         <a href="#" class="category" onclick="showShoes('women')">Women</a>
         <a href="#" class="category" onclick="showShoes('children')">Children</a>
     </div>
+    
+    <audio id="about-us-audio" style="display: none;">
+        <source src="pictures/y2mate.com - What A Beautiful Name  Hillsong Worship">
+        Your browser does not support the audio element.
+    </audio>
+    
+   
       <div class="sidebar">
         <p><u style="font-size:18px;">About Us</u> </p>
         <p>At BestKicks, we make finding the perfect shoes easy and fun. From everyday classics to the latest trends, we’ve got something for everyone. Step up your style with us today
@@ -403,6 +459,18 @@
     <div class="footer">
         <p>&copy; 2024 BEST KICKS. Designed by SGR .</p>
     </div>
+    <!-- Popup Modal -->
+
+<div id="shoe-details-popup" class="popup">
+    <div class="popup-content">
+        <span class="close-popup">&times;</span>
+        <h2 id="popup-shoe-name"></h2>
+        <p id="popup-shoe-price"></p>
+        <div id="popup-shoe-images"></div>
+        <p id="popup-shoe-description"></p> <!-- Display the description here -->
+    </div>
+</div>
+
 
     <script>
         function toggleCart() {
@@ -415,20 +483,19 @@
  
         const shoesData = {
             men: [
-                {name: "Men's Running Shoes", price: "30k", images: ["pictures/shoe 1.PNG", "pictures/shoe2.PNG", "pictures/shoe3.PNG", "pictures/SHOE4.PNG"]},
-                {name: "Men's Casual Shoes", price: "27k", images: ["pictures/shoe2.PNG", "pictures/shoe3.PNG", "pictures/SHOE4.PNG", "pictures/shoe 1.PNG"]},
-                {name: "Women's Sneakers", price: "24k", images: ["pictures/SHOE4.PNG", "pictures/shoe 1.PNG", "pictures/shoe3.PNG", "pictures/shoe2.PNG"]},   
-                {name: "Men's Running Shoes", price: "30k", images: ["pictures/shoe 1.PNG", "pictures/shoe2.PNG", "pictures/shoe3.PNG", "pictures/SHOE4.PNG"]},
-                {name: "Men's Casual Shoes", price: "27k", images: ["pictures/shoe2.PNG", "pictures/shoe3.PNG", "pictures/SHOE4.PNG", "pictures/shoe 1.PNG"]} ,
-                {name: "Kid's Running Shoes", price: "30k", images: ["pictures/shoe 1.PNG", "pictures/shoe2.PNG", "pictures/shoe3.PNG", "pictures/SHOE4.PNG"]},
-                {name: "Kid's Casual Shoes", price: "27k", images: ["pictures/shoe2.PNG", "pictures/shoe3.PNG", "pictures/shoe4.PNG", "pictures/shoe 1.PNG"]},
-                {name: "Men's Running Shoes", price: "30k", images: ["pictures/shoe 1.PNG", "pictures/shoe2.PNG", "pictures/shoe3.PNG", "pictures/SHOE4.PNG"]},
-                {name: "Men's Casual Shoes", price: "27k", images: ["pictures/shoe2.PNG", "pictures/shoe3.PNG", "pictures/SHOE4.PNG", "pictures/shoe 1.PNG"]},
-                {name: "Women's Sneakers", price: "24k", images: ["pictures/SHOE4.PNG", "pictures/shoe 1.PNG", "pictures/shoe3.PNG", "pictures/shoe2.PNG"]},   
-                {name: "Men's Running Shoes", price: "30k", images: ["pictures/shoe 1.PNG", "pictures/shoe2.PNG", "pictures/shoe3.PNG", "pictures/SHOE4.PNG"]},
-                {name: "Men's Casual Shoes", price: "27k", images: ["pictures/shoe2.PNG", "pictures/shoe3.PNG", "pictures/SHOE4.PNG", "pictures/shoe 1.PNG"]} ,
-                {name: "Kid's Running Shoes", price: "30k", images: ["pictures/shoe 1.PNG", "pictures/shoe2.PNG", "pictures/shoe3.PNG", "pictures/SHOE4.PNG"]},
-                {name: "Kid's Casual Shoes", price: "27k", images: ["pictures/shoe2.PNG", "pictures/shoe3.PNG", "pictures/shoe4.PNG", "pictures/shoe 1.PNG"]}
+                {name: "New Balance MR530sd", price: "40k", images: ["pictures/NB (1)-min.jpg", "pictures/NB (2)-min.jpg", "pictures/NB (3)-min.jpg", "pictures/NB (4)-min.jpg"]},
+                {name: "Adidas Handball spezial prooloved Green", price: "32k", images: ["samba grn (1)-min.jpg", "pictures/samba grn (2)-min.jpg", "pictures/samba grn (3)-min.jpg", "pictures/samba grn (4)-min.jpg"]},
+                {name: "Onitsuka tiger", price: "32k", images: ["onitsuka tiger (1)-min.jpg", "pictures/onitsuka tiger (2)-min.jpg", "onitsuka tiger (3)-min.jpg", "onitsuka tiger (4)-min.jpg"]},   
+                {name: "Nike Dunk low ", price: "25k", images: ["pictures/jordan 2-min.jpeg", "pictures/jordan 3-min.jpeg", "pictures/jordan 4-min.jpeg", "pictures/jordan 5-min.jpeg"]},
+                {name: "Nike Airmax Pulse", price: "33k", images: ["pictures/air max 1.jpg", "pictures/air max 2.jpg", "pictures/air max 3.jpg", "pictures/air max 4.jpg"]} ,
+                {name: "Nike Dunk Low SE 85", price: "30k", images: ["pictures/cs nike 1.jpg", "pictures/cs nike 2.jpg", "pictures/cs nike 3.jpg", "pictures/cs nike 4.jpg"]},
+                {name: "Nike Dunk Low SE 85", price: "30k", images: ["pictures/j1 blue (1).jpg", "pictures/j1 blue (2).jpg", "pictures/j1 blue (3).jpg", "pictures/j1 blue (4).jpg"]},
+                {name: "Vans Old Skool", price: "25k", images: ["pictures/vans 1-min.jpg", "pictures/vans 2-min.jpg", "pictures/vans 3.webp", "pictures/vans 4-min.jpg"]},
+                {name: "Nike Dunk Low SE 85", price: "30k", images: ["pictures/nike sb ch 1-min".jpg, "pictures/nike sb ch2-min.jpg", "pictures/nike sb ch 3-min".jpg", "pictures/nike sb ch 4-min".jpg"]},
+                {name: "Clarks Originals Wallabee shoes", price: "35k", images: ["pictures/classic yellow (1).jpg", "pictures/classic yellow (2).jpg", "pictures/classic yellow (3).jpg", "pictures/classic yellow (4).jpg"]},   
+                {name: "Adidas Samba OG W/blue", price: "30k", images: ["pictures/samba blue  2.webp", "pictures/samba blue  3.webp", "pictures/samba blue  5.webp", "pictures/samba blue  4.webp"]},
+                {name: "Adidas Handball Spezial green", price: "30k", images: ["pictures/samba grn (1)-min.jpg", "pictures/samba grn (2)-min.jpg", "pictures/samba grn (3)-min.jpg", "pictures/samba grn (4)-min.jpg"]} ,
+                {name: "Adidas Puig Samba", price: "30k", images: ["pictures/samba puig 1.webp", "pictures/samba puig 2.webp", "pictures/samba puig 3.webp", "pictures/samba puig.webp"]}
             ],
     
             women:[
@@ -449,10 +516,14 @@
                 {name: "Kid's Casual Shoes", price: "27k", images: ["pictures/shoe2.PNG", "pictures/shoe3.PNG", "pictures/shoe4.PNG", "pictures/shoe 1.PNG"]}
             ],
             children: [
-                {name: "Kid's Running Shoes", price: "30k", images: ["pictures/shoe 1.PNG", "pictures/shoe2.PNG", "pictures/shoe3.PNG", "pictures/SHOE4.PNG"]},
-                {name: "Kid's Casual Shoes", price: "27k", images: ["pictures/shoe2.PNG", "pictures/shoe3.PNG", "pictures/shoe4.PNG", "pictures/shoe 1.PNG"]},            
-                {name: "Men's Running Shoes", price: "30k", images: ["pictures/shoe 1.PNG", "pictures/shoe2.PNG", "pictures/shoe3.PNG", "pictures/SHOE4.PNG"]},
-                {name: "Men's Casual Shoes", price: "27k", images: ["pictures/shoe2.PNG", "pictures/shoe3.PNG", "pictures/SHOE4.PNG", "pictures/shoe 1.PNG"]},
+                {name: "Kid's Running Shoes", price: "30k", images: ["pictures/shoe 1.PNG", "pictures/shoe2.PNG", "pictures/shoe3.PNG", "pictures/SHOE4.PNG",],description: "Adidas Ultraboost offers an energy-returning experience with every step, combining style and performance for maximum comfort."
+            },
+                {name: "Kid's Casual Shoes", price: "27k", images: ["pictures/shoe2.PNG", "pictures/shoe3.PNG", "pictures/shoe4.PNG", "pictures/shoe 1.PNG"],description: "Adidas Ultraboost offers an energy-returning experience with every step, combining style and performance for maximum comfort."
+            },            
+                {name: "Men's Running Shoes", price: "30k", images: ["pictures/shoe 1.PNG", "pictures/shoe2.PNG", "pictures/shoe3.PNG", "pictures/SHOE4.PNG"],description: "Adidas Ultraboost offers an energy-returning experience with every step, combining style and performance for maximum comfort."
+            },
+                {name: "Men's Casual Shoes", price: "27k", images: ["pictures/shoe2.PNG", "pictures/shoe3.PNG", "pictures/SHOE4.PNG", "pictures/shoe 1.PNG"],description: "Adidas Ultraboost offers an energy-returning experience with every step, combining style and performance for maximum comfort."
+            },
                 {name: "Women's Sneakers", price: "24k", images: ["pictures/SHOE4.PNG", "pictures/shoe 1.PNG", "pictures/shoe3.PNG", "pictures/shoe2.PNG"]},   
                 {name: "Men's Running Shoes", price: "30k", images: ["pictures/shoe 1.PNG", "pictures/shoe2.PNG", "pictures/shoe3.PNG", "pictures/SHOE4.PNG"]},
                 {name: "Men's Casual Shoes", price: "27k", images: ["pictures/shoe2.PNG", "pictures/shoe3.PNG", "pictures/SHOE4.PNG", "pictures/shoe 1.PNG"]} ,
@@ -476,69 +547,72 @@
         }
 
         function showShoes(category) {
-            const shoes = shoesData[category];
-            const mainContent = document.getElementById('main-content');
-            mainContent.innerHTML = ''; // Clear existing content
+    const shoes = shoesData[category];
+    const mainContent = document.getElementById('main-content');
+    mainContent.innerHTML = ''; // Clear existing content
 
-            shoes.forEach(shoe => {
-                const shoeCard = document.createElement('div');
-                shoeCard.className = 'shoe-card';
+    shoes.forEach(shoe => {
+        const shoeCard = document.createElement('div');
+        shoeCard.className = 'shoe-card';
 
-                const carousel = document.createElement('div');
-                carousel.className = 'carousel';
+        // Create carousel for shoe images
+        const carousel = document.createElement('div');
+        carousel.className = 'carousel';
+        const carouselImages = document.createElement('div');
+        carouselImages.className = 'carousel-images';
+        shoe.images.forEach(image => {
+            const img = document.createElement('img');
+            img.src = image;
+            carouselImages.appendChild(img);
+        });
 
-                const carouselImages = document.createElement('div');
-                carouselImages.className = 'carousel-images';
+        const prevButton = document.createElement('button');
+        prevButton.textContent = '<';
+        const nextButton = document.createElement('button');
+        nextButton.textContent = '>';
 
-                shoe.images.forEach(image => {
-                    const img = document.createElement('img');
-                    img.src = image;
-                    carouselImages.appendChild(img);
-                });
+        const buttonsDiv = document.createElement('div');
+        buttonsDiv.className = 'carousel-buttons';
+        buttonsDiv.appendChild(prevButton);
+        buttonsDiv.appendChild(nextButton);
 
-                const prevButton = document.createElement('button');
-                prevButton.textContent = '<';
-                const nextButton = document.createElement('button');
-                nextButton.textContent = '>';
+        carousel.appendChild(carouselImages);
+        carousel.appendChild(buttonsDiv);
 
-                const buttonsDiv = document.createElement('div');
-                buttonsDiv.className = 'carousel-buttons';
-                buttonsDiv.appendChild(prevButton);
-                buttonsDiv.appendChild(nextButton);
+        shoeCard.innerHTML = `
+            <p class="shoe-name">${shoe.name}</p>
+            <p class="shoe-price">${shoe.price}</p>
+            <button class="add-to-cart">Add to Cart</button>
+            <button class="place-order-button">Place order</button>
+            <button class="view-details-button">Details</button>
+        `;
 
-                carousel.appendChild(carouselImages);
-                carousel.appendChild(buttonsDiv);
+        // Attach event listeners
+        const addToCartButton = shoeCard.querySelector('.add-to-cart');
+        addToCartButton.addEventListener('click', () => addToCart(shoe));
 
-                shoeCard.innerHTML = `
-                    <p class="shoe-name">${shoe.name}</p>
-                    <p class="shoe-price">${shoe.price}</p>
-                    <button class="add-to-cart">Add to Cart</button>
-                    <button class="place-order-button">Place order</button>
-                `;
+        const placeOrderButton = shoeCard.querySelector('.place-order-button');
+        placeOrderButton.addEventListener('click', () => placeOrder(shoe.name, shoe.price));
 
-                // Attach event listeners after the card has been created
-                const addToCartButton = shoeCard.querySelector('.add-to-cart');
-                addToCartButton.addEventListener('click', () => addToCart(shoe));
+        const viewDetailsButton = shoeCard.querySelector('.view-details-button');
+        viewDetailsButton.addEventListener('click', () => showShoeDetails(shoe));
 
-                const placeOrderButton = shoeCard.querySelector('.place-order-button');
-                placeOrderButton.addEventListener('click', () => placeOrder(shoe.name, shoe.price));
+        shoeCard.insertBefore(carousel, shoeCard.firstChild);
+        mainContent.appendChild(shoeCard);
 
-                shoeCard.insertBefore(carousel, shoeCard.firstChild);
-                mainContent.appendChild(shoeCard);
+        let currentIndex = 0;
 
-                let currentIndex = 0;
+        prevButton.addEventListener('click', () => {
+            currentIndex = (currentIndex > 0) ? currentIndex - 1 : shoe.images.length - 1;
+            carouselImages.style.transform = `translateX(-${currentIndex * 100}%)`;
+        });
 
-                prevButton.addEventListener('click', () => {
-                    currentIndex = (currentIndex > 0) ? currentIndex - 1 : shoe.images.length - 1;
-                    carouselImages.style.transform = `translateX(-${currentIndex * 100}%)`;
-                });
-
-                nextButton.addEventListener('click', () => {
-                    currentIndex = (currentIndex < shoe.images.length - 1) ? currentIndex + 1 : 0;
-                    carouselImages.style.transform = `translateX(-${currentIndex * 100}%)`;
-                });
-            });
-        }
+        nextButton.addEventListener('click', () => {
+            currentIndex = (currentIndex < shoe.images.length - 1) ? currentIndex + 1 : 0;
+            carouselImages.style.transform = `translateX(-${currentIndex * 100}%)`;
+        });
+    });
+}
 
     function searchShoes() {
     const searchQuery = document.getElementById('search-box').value.toLowerCase();
@@ -670,7 +744,7 @@
 
         function placeOrder(shoeName, shoePrice ,shoeImage) {
             const phoneNumber = '250790153256';
-            const message = `Hi, I saw a pair of shoes in your store, and I love them! Can you please let me know if they are available in my size?:  "${shoeName}" priced at ${shoePrice}.`;
+            const message = `Hi, I want to order "${shoeImage}" named "${shoeName}" priced at ${shoePrice}.`;
             const whatsappURL = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
             window.location.href = whatsappURL;
         }
@@ -687,6 +761,51 @@
             const cartContainer = document.getElementById('cart-container');
             cartContainer.classList.remove('active');
         }
+        // Function to open the popup with shoe details
+        function showShoeDetails(shoe) {
+    // Update the popup content
+    document.getElementById('popup-shoe-name').textContent = shoe.name;
+    document.getElementById('popup-shoe-price').textContent = shoe.price;
+    document.getElementById('popup-shoe-description').textContent = shoe.description;
+
+    // Create the image carousel for the popup
+    const popupImages = document.getElementById('popup-shoe-images');
+    popupImages.innerHTML = ''; // Clear existing images
+    shoe.images.forEach(image => {
+        const img = document.createElement('img');
+        img.src = image;
+        popupImages.appendChild(img);
+    });
+
+    // Display the popup
+    document.getElementById('shoe-details-popup').style.display = 'block';
+}
+
+function closePopup() {
+    document.getElementById('shoe-details-popup').style.display = 'none';
+}
+
+// Attach event listener to the close button
+document.querySelector('.close-popup').addEventListener('click', closePopup);
+
+// Close the popup when the user clicks outside of the popup
+window.onclick = function(event) {
+    if (event.target === document.getElementById('shoe-details-popup')) {
+        closePopup();
+    }
+}
+
+     function toggleAudio() {
+            const audio = document.getElementById('about-us-audio');
+            if (audio.paused) {
+                audio.play();
+            } else {
+                audio.pause();
+            }
+        }
+
+    
+
     </script>
 
 </body>
